@@ -1,0 +1,35 @@
+<div class="main_container" *ngIf="booksState$ | async as state">
+  <ng-container *ngIf="state.currentBook as book; else showLoading">
+
+    <div class="main_container__side">
+      <img class="main_container__img" [src]="book.volumeInfo.imageLinks?.small | bookimg" alt="book.volumeInfo.title">
+      <p><small>{{ book.volumeInfo.publisher }}</small></p>
+
+      <button mat-button color="warn" (click)="onAddToWishlistClicked(book)"
+        *ngIf="!isBookInWishlist(book, state.wishlist); else showRemoveBtn" mat-dialog-close>
+        <mat-icon>playlist_add</mat-icon>&nbsp;
+        Add to wishlist
+      </button>
+
+      <ng-template #showRemoveBtn>
+        <button mat-button color="accent" (click)="onRemoveFromWishlistClicked(book)" mat-dialog-close>
+          <mat-icon color="accent">delete_sweep</mat-icon>&nbsp;
+          Remove from wishlist
+        </button>
+      </ng-template>
+
+    </div>
+    <div class="main_container__info">
+      <h3>{{ book.volumeInfo.title }}</h3>
+      <small *ngFor="let author of book.volumeInfo.authors">{{ author }}&nbsp;</small>
+      <div class="main_container__info__desc">
+        <p>{{ book.volumeInfo.description }}</p>
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-template #showLoading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+
+</div>

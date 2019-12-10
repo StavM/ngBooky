@@ -1,0 +1,43 @@
+@import "variables";
+
+.header_container {
+  border-top: 3px solid $md-booky-primary;
+
+  & .header_container__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .header_container__row__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  & .header_container__row__welcome {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  & .header_container__row__welcome__dc_icon {
+    display: none;
+  }
+}
+
+@media (max-width: $mobileWidthBreakpoint) {
+  .header_container {
+    & .header_container__row__welcome {
+      justify-content: center;
+
+      & .header_container__row__welcome__greet {
+        display: none;
+      }
+
+      & .header_container__row__welcome__dc_icon {
+        display: block;
+      }
+    }
+  }
+}

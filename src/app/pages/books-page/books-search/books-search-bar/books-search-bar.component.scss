@@ -1,0 +1,46 @@
+@import "variables";
+@import "mixins";
+
+.search_container {
+  display: flex;
+  padding: 0.5rem;
+  @include booky-bg;
+
+  & .search_container__form {
+    width: 100%;
+    display: flex;
+  }
+
+  & .search_container__field {
+    width: 100%;
+    display: flex;
+
+    & .search_container__field__search_input {
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      @include booky-bg;
+    }
+
+    & .search_container__form__search_button,
+    .search_container__field__search_input {
+      outline: none;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+  }
+}
+
+// mobile search bar
+@media (max-width: $mobileWidthBreakpoint) {
+  .search_container {
+    border-radius: 0;
+
+    & .search_container__form__search_button {
+      display: none;
+    }
+  }
+}

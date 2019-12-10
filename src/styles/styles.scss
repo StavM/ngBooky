@@ -1,0 +1,22 @@
+/*
+ * Global styles for booky®.
+*/
+
+@import 'variables';
+@import 'theme';
+@import 'mixins';
+
+html, body {
+  height: 100%;
+  font-family: "Assistant", sans-serif;
+  margin: 0;
+
+  background-color: $md-booky-secondary;
+  background-image: url('/assets/images/backgrounds/plaid.jpg');
+  background-repeat: repeat;
+}
+
+// Make sure all inputs inherit our theme's font-family.
+body input {
+  font-family: "Assistant", sans-serif;
+}

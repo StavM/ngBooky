@@ -1,0 +1,26 @@
+<ng-container *ngIf="(booksState$ | async) as state">
+
+  <p *ngIf="state.searchTerm">Search results for '<strong>{{ state.searchTerm }}</strong>'
+    <small *ngIf="!state.isSearching">({{ state.results?.totalItems | number }} found)</small>:
+  </p>
+  <div class="card_deck_container">
+
+    <mat-spinner color="primary" *ngIf="state.isSearching; else searchComplete"></mat-spinner>
+
+    <ng-template #searchComplete>
+      <ng-container *ngIf="state.results.items; else noResults">
+        <app-books-search-result-item *ngFor="let book of state.results?.items" [book]="book"></app-books-search-result-item>
+      </ng-container>
+
+      <ng-template #noResults>
+        <mat-card>
+          <p>No results - please try a different search query.</p>
+        </mat-card>
+      </ng-template>
+
+    </ng-template>
+
+  </div>
+  <app-books-search-results-pager *ngIf="state.results.items"></app-books-search-results-pager>
+
+</ng-container>

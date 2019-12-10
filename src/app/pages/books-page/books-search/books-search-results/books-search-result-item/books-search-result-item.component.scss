@@ -1,0 +1,33 @@
+@import 'mixins';
+
+mat-card {
+  height: 24rem;
+
+  &:hover {
+    @include booky-shadow;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+  }
+
+  & mat-card-header {
+    height: 6rem;
+    overflow: hidden;
+  }
+
+  & mat-card-footer {
+    width: 16rem;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.book_result_header {
+  justify-content: center;
+}
+
+.book_result_img {
+  @include booky-shadow;
+  border-radius: 5px;
+  width: 128px;
+  height: 180px;
+}

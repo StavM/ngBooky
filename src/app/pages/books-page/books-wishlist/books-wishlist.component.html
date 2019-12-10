@@ -1,0 +1,7 @@
+<mat-card>
+  <mat-card-title>My Wishlist</mat-card-title>
+  <mat-card-content *ngIf="(myWishlist$ | async) as books">
+    <app-books-wishlist-item *ngFor="let book of books" [book]="book"></app-books-wishlist-item>
+    <p *ngIf="!books.length">your wishlist is currently empty.</p>
+  </mat-card-content>
+</mat-card>

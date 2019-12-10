@@ -1,0 +1,9 @@
+<mat-card class="pager_container" *ngIf="(booksState$ | async) as state">
+  <mat-paginator [length]="state.results.totalItems"
+                [pageSize]="pageSize"
+                [hidePageSize]="true"
+                [showFirstLastButtons]="true"
+                [pageIndex]="state.resultsPage"
+                (page)="onPageChanged(state.searchTerm, $event)">
+  </mat-paginator>
+</mat-card>

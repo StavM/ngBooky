@@ -1,0 +1,50 @@
+/*
+ * Angular material custom theme changes .
+ * https://material.angular.io/guide/theming
+*/
+
+@import '~@angular/material/theming';
+@import './variables';
+@import 'scrollbar';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for the theme using the Material Design palettes available in palette.scss
+// (imported above). Available color palettes: https://material.io/design/color/
+$booky-app-primary: mat-palette($md-booky, 500);
+$booky-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$booky-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$booky-app-theme: mat-light-theme($booky-app-primary, $booky-app-accent, $booky-app-warn);
+
+// Custom typography font-family
+$custom-typography: mat-typography-config(
+  $font-family: 'Assistant, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+// Apply our custom typography
+@include mat-core($custom-typography);
+
+// Include theme styles for core.
+@include angular-material-theme($booky-app-theme);
+
+// Make sure form-fields icons are colored according to the main theme.
+mat-form-field.mat-focused mat-icon,
+mat-form-field.mat-focused mat-hint {
+  color: $md-booky-primary;
+}
+// Invalid form fields colors to sync with form validity.
+mat-form-field.mat-form-field-invalid mat-icon {
+  color: $md-booky-danger;
+}
+
+// Modal containers will have round edges
+mat-dialog-container.mat-dialog-container {
+  border-radius: 15px;
+}

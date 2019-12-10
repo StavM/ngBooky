@@ -1,0 +1,45 @@
+@import 'mixins';
+@import 'variables';
+
+.main_container {
+  display: flex;
+  align-items: center;
+
+  & .main_container__side {
+    text-align: center;
+  }
+
+  & .main_container__img {
+    width: 15rem;
+    height: 20rem;
+    border-radius: 15px;
+    @include booky-shadow;
+  }
+
+  & .main_container__info {
+    margin: auto 1rem;
+    display: flex;
+    flex-direction: column;
+
+    & .main_container__info__desc {
+      height: 20rem;
+      overflow-y: auto;
+    }
+  }
+}
+
+
+@media(max-width: $mobileWidthBreakpoint) {
+  .main_container {
+    flex-direction: column;
+
+    & .main_container__img {
+      width: auto;
+      height: 10rem;
+    }
+
+    & .main_container__info__desc {
+      max-height: 10rem;
+    }
+  }
+}

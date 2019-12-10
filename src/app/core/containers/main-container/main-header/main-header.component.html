@@ -1,0 +1,28 @@
+<mat-toolbar class="header_container mat-elevation-z2" *ngIf="(appState$ | async) as state" [@slideToBottom]>
+  <mat-toolbar-row class="header_container__row">
+    <div class="header_container__row__logo">
+      <button mat-button class="user-account-button" (click)="onNavigateToSearchClicked()">
+        <mat-icon>menu_book</mat-icon>&nbsp;
+        <span>Booky</span>
+      </button>
+    </div>
+
+    <div class="header_container__row__welcome" *ngIf="state.login.user">
+      <small class="header_container__row__welcome__greet">
+        Welcome, {{ state.login.user.name | titlecase }}&nbsp;
+        (<a href="javascript:void(0)" (click)="onLogoutClicked()">logout</a>)
+      </small>
+      <button class="header_container__row__welcome__dc_icon" color="basic" mat-icon-button (click)="onLogoutClicked()"
+        matTooltip="Logout">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+    </div>
+
+    <div class="header_container__row__user">
+      <button mat-button class="user-account-button" (click)="onNavigateToWishlistClicked()" matTooltip="Wishlist">
+        <mat-icon color="warn" [matBadge]="state.books.wishlist.length" [matBadgeHidden]="!state.books.wishlist.length"
+          matBadgeOverlap="false">favorite</mat-icon>&nbsp;
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

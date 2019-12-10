@@ -1,0 +1,18 @@
+.main_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .main_container__logo, .main_container__slogen {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    letter-spacing: 1.70px;
+    margin: 0;
+  }
+
+  & .main_container__img {
+    width: 8rem;
+  }
+}

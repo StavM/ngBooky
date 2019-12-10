@@ -1,0 +1,27 @@
+@import 'variables';
+
+.main_container {
+  width: 100%;
+  text-align: center;
+
+  & .main_container__search,
+  .main_container__results {
+    margin: 2rem 3rem;
+  }
+
+  // sticky search bar
+  & .main_container__search {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+}
+
+@media(max-width: $mobileWidthBreakpoint) {
+  .main_container {
+    .main_container__search {
+      margin: 2rem auto;
+    }
+  }
+}
+

@@ -1,0 +1,12 @@
+<!-- reactive driven form -->
+<div class="search_container">
+  <form class="search_container__form" [formGroup]="searchForm">
+    <div class="search_container__field">
+      <input class="search_container__field__search_input" placeholder="Search a book..." formControlName="searchTerm">
+    </div>
+    <button type="submit" (click)="doSearch(searchForm.value)" class="search_container__form__search_button"
+      mat-flat-button color="primary">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+</div>

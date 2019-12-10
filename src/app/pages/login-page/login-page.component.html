@@ -1,0 +1,31 @@
+<!-- template driven form -->
+<div class="main_container">
+  <mat-card class="main_container__card mat-elevation-z8" [@customFade]>
+
+    <img class="main_container__card_logo" src="../../../assets/images/logo/booklogo.png" alt="a black book with a black pen next to it">
+    <mat-card-header class="main_container__card_header">
+      <mat-card-title>Welcome to booky, let's get started.</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form *ngIf="(loginState$ | async) as state" (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+        <!-- username -->
+        <mat-form-field class="main_container__card_user" appearance="outline" color="primary" >
+          <mat-label>Username</mat-label>
+          <input matInput type="text" name="username" color="primary" [disabled]="state.isInProcess"
+           autocomplete="off" minlength="1" maxlength="10" autofocus required ngModel #username>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="!username.value">Username is a <strong>required</strong> field</mat-error>
+        </mat-form-field>
+
+        <!-- submit -->
+        <button mat-flat-button color="primary" class="main_container__card_submit mat-elevation-z2" [disabled]="state.isInProcess">Login</button>
+
+      </form>
+      <mat-card-footer>
+        <small>booky inc ®</small>
+      </mat-card-footer>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,12 @@
+<div class="wishlist_item_container">
+  <div class="wishlist_item_container__img_container">
+    <img class="wishlist_item_container__img_container__img" [src]="book.volumeInfo.imageLinks?.small | bookimg" alt="">
+  </div>
+  <div class="wishlist_item_container__info_container">
+    <p><strong>{{ book.volumeInfo.title }}</strong></p>
+    <button mat-button color="primary" (click)="onShowDetailsClicked()">
+      <mat-icon>info</mat-icon>&nbsp;
+      Details
+    </button>
+  </div>
+</div>

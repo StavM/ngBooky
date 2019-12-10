@@ -1,0 +1,11 @@
+// booky background to be used on cards across the booky module.
+@mixin booky-bg {
+  background: $md-booky-lightbg;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+// booky shadow to be used across the cards, images and divs in the booky module
+@mixin booky-shadow {
+  box-shadow: 0 8px 8px rgba(10, 16, 20, 0.24), 0 0 8px rgba(10, 16, 20, 0.12);
+}
