@@ -23,7 +23,7 @@
       <h3>{{ book.volumeInfo.title }}</h3>
       <small *ngFor="let author of book.volumeInfo.authors">{{ author }}&nbsp;</small>
       <div class="main_container__info__desc">
-        <p>{{ book.volumeInfo.description }}</p>
+        <div [innerHtml]="book?.volumeInfo?.description"></div>
       </div>
     </div>
 
